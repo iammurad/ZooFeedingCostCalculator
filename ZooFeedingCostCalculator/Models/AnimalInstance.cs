@@ -7,3 +7,5 @@ namespace ZooFeedingCostCalculator.Models
         public decimal WeightKg { get; set; }
     }
 }
+
+
