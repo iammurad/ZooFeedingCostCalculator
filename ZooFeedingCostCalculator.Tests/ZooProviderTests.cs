@@ -16,7 +16,7 @@ namespace ZooFeedingCostCalculator.Tests
 <Zoo>
     <Lions>
         <Lion name='Simba' kg='160'/>
-        <Lion name='Nala' kg='172'/>
+        <Lion name='' kg='172'/>
     </Lions>
     <Giraffes>
         <Giraffe name='Hanna' kg='200'/>
@@ -32,8 +32,14 @@ namespace ZooFeedingCostCalculator.Tests
 
             // Assert
             Assert.Equal(3, animals.Count);
-
             var simba = animals.FirstOrDefault(a => a.Name == "Simba");
+            var lions = animals.Where(a => a.SpeciesName == "Lion").ToList();
+            
+            foreach (var item in lions)
+            {
+                Assert.Empty(item.Name);
+            }
+           
             Assert.NotNull(simba);
             Assert.Equal("Lion", simba.SpeciesName);
             Assert.Equal(160m, simba.WeightKg);
@@ -42,7 +48,7 @@ namespace ZooFeedingCostCalculator.Tests
             Assert.NotNull(hanna);
             Assert.Equal("Giraffe", hanna.SpeciesName);
             Assert.Equal(200m, hanna.WeightKg);
-
+            
             File.Delete(tempFile);
         }
     }
