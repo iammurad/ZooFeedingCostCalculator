@@ -16,7 +16,7 @@ namespace ZooFeedingCostCalculator.Tests
 <Zoo>
     <Lions>
         <Lion name='Simba' kg='160'/>
-        <Lion name='' kg='172'/>
+        <Lion name='Limba' kg='172'/>
     </Lions>
     <Giraffes>
         <Giraffe name='Hanna' kg='200'/>
@@ -37,7 +37,7 @@ namespace ZooFeedingCostCalculator.Tests
             
             foreach (var item in lions)
             {
-                Assert.Empty(item.Name);
+                Assert.NotEmpty(item.Name);
             }
            
             Assert.NotNull(simba);
